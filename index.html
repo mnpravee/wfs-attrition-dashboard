@@ -106,7 +106,7 @@ tr:hover td{background:#eff6ff}
 </style>
 </head>
 <body>
-<div class="header"><h1>WFS Australia</h1><h2>Attrition Dashboard and Analysis</h2><div class="meta" id="metaInfo">Last updated: 2026-04-19 14:32:06 UTC</div></div>
+<div class="header"><h1>WFS Australia</h1><h2>Attrition Dashboard and Analysis</h2><div class="meta" id="metaInfo">Last updated: 2026-04-19 14:38:31 UTC</div></div>
 <div class="tabs">
 <div class="tab active" data-tab="readme">Read Me</div>
 <div class="tab" data-tab="overview">Overall Summary</div>
@@ -227,43 +227,6 @@ tr:hover td{background:#eff6ff}
 </ul>
 <p>Changing any filter instantly updates all KPIs, charts, insights, tables, and forecasts across all tabs.</p>
 
-<h2>Technical Details</h2>
-<ul>
-<li><strong>Data download:</strong> <code>download-table.js</code> (Playwright automation)</li>
-<li><strong>Dashboard server:</strong> <code>dashboard/server.js</code> (Node.js HTTP server on port 3000)</li>
-<li><strong>Frontend:</strong> <code>dashboard/index.html</code> + <code>dashboard/app.js</code></li>
-<li><strong>Charts:</strong> Chart.js 4.x with DataLabels plugin (numbers visible on all charts)</li>
-<li><strong>CSV parsing:</strong> PapaParse</li>
-<li><strong>No database required</strong> - reads directly from the CSV export file</li>
-</ul>
-
-<h2>How to Run Locally</h2>
-<ol>
-<li>Close Chrome completely</li>
-<li>Run <code>node download-table.js</code> to fetch fresh data from QuickSight</li>
-<li>Run <code>node dashboard/server.js</code> to start the dashboard</li>
-<li>Open <code>http://localhost:3000</code> in your browser</li>
-</ol>
-
-<h2>How to Publish to Amazon Network</h2>
-<p>The dashboard can be published as a single self-contained HTML file to Harmony or S3 for anyone on the Amazon network to view.</p>
-<h3>One-Click Publish</h3>
-<ol>
-<li>Close Chrome completely</li>
-<li>Run <code>node publish-report.js</code></li>
-<li>This will: download fresh data from QuickSight → build a self-contained HTML → open it for verification</li>
-<li>Upload <code>publish/index.html</code> to Harmony or S3</li>
-</ol>
-<h3>Harmony Setup (First Time)</h3>
-<ol>
-<li>Go to <code>console.harmony.a2z.com</code></li>
-<li>Create a tenant (e.g., <code>wfs-au-attrition</code>)</li>
-<li>Create a content path (e.g., <code>/dashboard</code>)</li>
-<li>Upload <code>publish/index.html</code></li>
-<li>Dashboard URL: <code>https://wfs-au-attrition.harmony.a2z.com/dashboard/index.html</code></li>
-</ol>
-<h3>Updating Data</h3>
-<p>Run <code>node publish-report.js</code> again anytime. It downloads fresh data, rebuilds the HTML, and you just re-upload the single file. The dashboard is fully self-contained — no server, no database, no dependencies at runtime.</p>
 </div>
 </div>
 <script>
